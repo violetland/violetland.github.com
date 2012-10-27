@@ -244,6 +244,14 @@ a.header {
 	text-decoration: underline;
 }
 
+img.header {
+	border-width: 0;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1em;
+}
+
 a.name {
 	white-space: nowrap;
 }
