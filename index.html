@@ -49,12 +49,28 @@
         <p>For further info please visit our <a href="http://groups.google.com/group/violetland">google group</a>.</p>
 
         <p>If you can't wait any longer, come on IRC channel right now: irc.freenode.net, #violetland. </p>
+
+        <h4>Screenshots</h4>
+
+        <div id="galleria" style="height: 550px">
+          <a href="images/screenshots/thumbnail/violetland-illumination-630x475.png"><img src="images/screenshots/thumbnail/violetland-illumination-53x40.png" data-big="images/screenshots/original/violetland-illumination.png" data-title="Illumination" data-description="Violetland uses an advanced illumination system"></a>
+          <a href="images/screenshots/thumbnail/violetland-laser-630x475.png"><img src="images/screenshots/thumbnail/violetland-laser-53x40.png" data-big="images/screenshots/original/violetland-laser.png" data-title="Laser" data-description="Violet shooting a laser"></a>
+          <a href="images/screenshots/thumbnail/violetland-death-630x475.png"><img src="images/screenshots/thumbnail/violetland-death-53x40.png" data-big="images/screenshots/original/violetland-death.png" data-title="Death" data-description="Death is the only way out ;)"></a>
+          <a href="images/screenshots/thumbnail/violetland-flashlight-630x475.png"><img src="images/screenshots/thumbnail/violetland-flashlight-53x40.png" data-big="images/screenshots/original/violetland-flashlight.png" data-title="Flashlight" data-description="Lighting up the dark"></a>
+          <a href="images/screenshots/thumbnail/violetland-massacre-630x475.jpg"><img src="images/screenshots/thumbnail/violetland-massacre-53x40.jpg" data-big="images/screenshots/original/violetland-massacre.jpg" data-title="Massacre" data-description="You cannot say manslaughter without laughter"></a>
+        </div>
+
       </section>
       <footer>
         <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
+    <!--[if !IE]><script type="text/javascript">fixScale(document);</script><![endif]-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/galleria/galleria-1.2.8.min.js"></script>
+    <script type="text/javascript">
+      Galleria.loadTheme('lib/galleria/themes/classic/galleria.classic.min.js');
+      Galleria.run('#galleria');
+    </script>
   </body>
 </html>
