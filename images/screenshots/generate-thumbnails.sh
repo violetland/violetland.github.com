@@ -1,0 +1,19 @@
+#!/bin/bash
+
+ORIGINAL_DIRECTORY="original"
+THUMBNAIL_DIRECTORY="thumbnail"
+THUMBNAIL_DIMENSIONS=( "53x40" "200x150" "630x475" )
+
+for FILE in $(ls $ORIGINAL_DIRECTORY/*.png $ORIGINAL_DIRECTORY/*.jpg); do
+	ORIGINAL_BASENAME=$(basename "${FILE}")
+
+	# @see http://stackoverflow.com/a/965072
+	ORIGINAL_NAME="${ORIGINAL_BASENAME%.*}"
+	ORIGINAL_EXTENSION="${ORIGINAL_BASENAME##*.}"
+
+
+	for THUMBNAIL_DIMENSION in "${THUMBNAIL_DIMENSIONS[@]}"; do
+		convert -resize "${THUMBNAIL_DIMENSION}" -extent "${THUMBNAIL_DIMENSION}" -background transparent -gravity center "${FILE}" "${THUMBNAIL_DIRECTORY}/${ORIGINAL_NAME}-${THUMBNAIL_DIMENSION}.${ORIGINAL_EXTENSION}"
+	done
+done
+
