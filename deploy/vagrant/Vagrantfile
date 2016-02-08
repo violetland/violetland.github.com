@@ -1,0 +1,41 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+# Since ruby >= 2.0.0 is required, we cannot use a Ubuntu LTS version (since
+# 16.04 is not released yet). Debian 8 would work, too, but the hardware I'm
+# currently using does not provide hardware acceleration, thus limiting myself
+# to 32bit guest
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+	config.vm.box = "ubuntu/wily32"
+
+
+	# Sync page source
+	config.vm.synced_folder "../../", "/violetland.github.io"
+
+	# Forward Jekyll port 4000
+	config.vm.network "forwarded_port", guest: 4000, host: 4000
+	
+	config.vm.provision "shell", inline: <<-SHELL
+	
+		# Install ruby 
+		apt-get update
+		apt-get install -y ruby libz-dev
+		
+
+		# Provide shortcut to launching Jekyll
+		cat <<EOT >> preview-jekyll.sh
+#!/bin/bash
+bash -c "cd /violetland.github.io; bundle exec jekyll serve"
+EOT
+		chmod +x preview-jekyll.sh
+
+
+		# Install Jekyll
+		cd /violetland.github.io
+		gem install bundler
+		bundle install
+	SHELL
+
+end
