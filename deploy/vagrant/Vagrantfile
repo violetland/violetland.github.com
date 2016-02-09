@@ -11,6 +11,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.box = "ubuntu/wily32"
 
 
+	# Testing on very slow machine
+	config.vm.boot_timeout = 400
+
 	# Sync page source
 	config.vm.synced_folder "../../", "/violetland.github.io"
 

@@ -16,6 +16,15 @@ host: 0.0.0.0
 
 
 #
+# @see http://jekyllrb.com/docs/assets/
+#
+sass:
+    sass_dir: _assets/scss
+    style: compressed
+
+
+
+#
 # GitHub defaults
 #
 kramdown:
